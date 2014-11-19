@@ -1441,3 +1441,239 @@ Migrating to Schema (20141119222556)
 BasicTest: test_basic_model
 ---------------------------
   [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects"
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("subject", "body", "id", "issue_id") VALUES ('Why not?', 'Lots of people still use it', 764128917, 621208605)[0m
+SQLite3::SQLException: table comments has no column named subject: INSERT INTO "comments" ("subject", "body", "id", "issue_id") VALUES ('Why not?', 'Lots of people still use it', 764128917, 621208605)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Why not?', 'Lots of people still use it', 764128917, 621208605)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Float issue', 'Fix coming ASAP', 953067225, 953067225)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "issues"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Page doesn''t load', 'Homepage fails to render in IE6', 621208605, 1059638630)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Links don''t appear on some pages', 'Other things overlap on them', 953067225, 1059638630)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("name", "id") VALUES ('Main Project', 1059638630)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("name", "id") VALUES ('Side Project', 595663797)
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Why not?', 'Lots of people still use it', 764128917, 621208605)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Float issue', 'Fix coming ASAP', 953067225, 953067225)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "issues"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Page doesn''t load', 'Homepage fails to render in IE6', 621208605, 1059638630)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Links don''t appear on some pages', 'Other things overlap on them', 953067225, 1059638630)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("name", "id") VALUES ('Main Project', 1059638630)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "projects" ("name", "id") VALUES ('Side Project', 595663797)
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mIssue Load (0.1ms)[0m  SELECT "issues".* FROM "issues"  WHERE "issues"."project_id" = ?  [["project_id", 595663797]]
+  [1m[36mIssue Load (0.0ms)[0m  [1mSELECT "issues".* FROM "issues"  WHERE "issues"."project_id" = ?[0m  [["project_id", 1059638630]]
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Why not?', 'Lots of people still use it', 764128917, 621208605)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Float issue', 'Fix coming ASAP', 953067225, 953067225)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "issues"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Page doesn''t load', 'Homepage fails to render in IE6', 621208605, 1059638630)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Links don''t appear on some pages', 'Other things overlap on them', 953067225, 1059638630)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "projects" ("name", "id") VALUES ('Main Project', 1059638630)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "id") VALUES ('Side Project', 595663797)
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mIssue Load (0.1ms)[0m  SELECT "issues".* FROM "issues"  WHERE "issues"."project_id" = ?  [["project_id", 595663797]]
+  [1m[36mIssue Load (0.0ms)[0m  [1mSELECT "issues".* FROM "issues"  WHERE "issues"."project_id" = ?[0m  [["project_id", 1059638630]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to Schema (20141119222556)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "issues" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "title" varchar(255), "body" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "issue_id" integer, "title" varchar(255), "body" varchar(255)) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141119222556"]]
+  [1m[35m (0.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Why not?', 'Lots of people still use it', 764128917, 621208605)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "comments" ("title", "body", "id", "issue_id") VALUES ('Float issue', 'Fix coming ASAP', 953067225, 953067225)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "issues"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Page doesn''t load', 'Homepage fails to render in IE6', 621208605, 1059638630)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "issues" ("title", "body", "id", "project_id") VALUES ('Links don''t appear on some pages', 'Other things overlap on them', 953067225, 1059638630)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "projects"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "id") VALUES ('Main Project', 1059638630)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "id") VALUES ('Side Project', 595663797)
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------
+ActiveRecordTest: test_basic
+----------------------------
+  [1m[36mProject Load (0.0ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mIssue Load (0.1ms)[0m  SELECT "issues".* FROM "issues"  WHERE "issues"."project_id" = ?  [["project_id", 595663797]]
+  [1m[36mIssue Load (0.0ms)[0m  [1mSELECT "issues".* FROM "issues"  WHERE "issues"."project_id" = ?[0m  [["project_id", 1059638630]]
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------
+BasicTest: test_basic_model
+---------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction

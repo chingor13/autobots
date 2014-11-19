@@ -1,0 +1,14 @@
+no_fix:
+  issue: load
+  title: Not going to fix this
+  body: Not enough browser share to worry about this.
+
+no_fix:
+  issue: load
+  title: Why not?
+  body: Lots of people still use it
+
+css:
+  issue: css
+  title: Float issue
+  body: Fix coming ASAP

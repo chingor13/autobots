@@ -1,0 +1,9 @@
+load:
+  project: main
+  title: Page doesn't load
+  body: Homepage fails to render in IE6
+
+css:
+  project: main
+  title: Links don't appear on some pages
+  body: Other things overlap on them
