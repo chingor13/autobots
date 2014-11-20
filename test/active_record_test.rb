@@ -39,6 +39,13 @@ class ProjectPreloadIncludedAssembler < Autobots::Assembler
   end
 end
 
+class ProjectIdAssembler < Autobots::Assembler
+  self.serializer = ProjectSerializer
+  def assemble(identifiers)
+    Project.where(id: identifiers).to_a
+  end
+end
+
 class ActiveRecordTest < ActiveSupport::TestCase
   fixtures :all
 
@@ -78,6 +85,21 @@ class ActiveRecordTest < ActiveSupport::TestCase
 
     data = nil
     assert_queries 3 do
+      data = assembler.data
+    end
+
+    assert data.is_a?(Array)
+    data.each do |item|
+      assert item.is_a?(Hash)
+    end
+  end
+
+  def test_can_use_ids
+    project_ids = Project.all.pluck(:id)
+    assembler = ProjectIdAssembler.new(project_ids)
+
+    data = nil
+    assert_queries 4 do
       data = assembler.data
     end
 

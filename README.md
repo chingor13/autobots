@@ -38,6 +38,16 @@ When trying to render a resource for an API, we have 3 parts:
 
 ```ruby
 
+class ProjectAssembler < Autobots::Assembler
+
+  # assembles the base objects needed for cache key generation
+  def assemble(identifiers)
+    Project.where(id: identifiers).to_a
+  end
+
+end
+
+
 project_ids = [1,2,3]
 assembler = ProjectAssembler.new(project_ids)
 
