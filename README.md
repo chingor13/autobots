@@ -1,4 +1,4 @@
-# Autobots
+# Autobots [![Build Status](https://travis-ci.org/chingor13/autobots.png)](https://travis-ci.org/chingor13/autobots)
 
 Loading and serializing models in bulk with caching.
 
