@@ -48,11 +48,17 @@ resources = assembler.resources
 
 ### Figuring out the data to return
 
-We use the `active_model_serializers` gem to accomplish serialization. An assembler declares the type of serializer used to 
+We use the `active_model_serializers` gem to accomplish serialization. An assembler declares the type of serializer used to specify the data returned
 
 ### Formatting the response
 
 `autobots` gem only handles the loading and representation of the data.
+
+```ruby
+
+class ProjectAssembler < Autobots::Assembler
+  self.serializer = ProjectSerializer # an ActiveModel::Serializer
+end
 
 ### Caching
 
@@ -78,6 +84,40 @@ assembler = ProjectAssembler.new(project_ids, {
     "#{obj.cache_key}-foo"
   }
 })
+
+```
+
+### Minimizing fetch requests
+
+The strength of this model lies in minimizing data fetch requests when building our data to serialize. We do this by delaying the loading of nested models and only load them if we have to.
+
+If a resources's cache is up to date, we shouldn't have to fetch it's dependencies from the database. However, if we have a cache miss, we want to optimally load the data needed.
+
+```ruby
+
+class ProjectAssembler < Autobots::Assembler
+
+  # for any missing resources, preload the nested attributes
+  def transform(resources)
+    ActiveRecord::Associations::Preloader.new.preload(resources, {issues: :comments})
+  end
+
+end
+
+```
+
+The preloading step can be customized (load from an external service or whatever you want). We provide a helpful mixin if you're using ActiveRecord and you want preloading:
+
+```ruby
+
+class ProjectAssembler < Autobots::Assembler
+  include Autobots::Helpers::ActiveRecordPreloading
+
+  # in this case, project has_many issues which has_many comments
+  def preloads
+    {issues: :comments}
+  end
+end
 
 ```
 
