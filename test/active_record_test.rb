@@ -30,6 +30,15 @@ class ProjectPreloadAssembler < Autobots::Assembler
   end
 end
 
+class ProjectPreloadIncludedAssembler < Autobots::Assembler
+  self.serializer = ProjectSerializer
+  include Autobots::Helpers::ActiveRecordPreloading
+
+  def preloads
+    {issues: :comments}
+  end
+end
+
 class ActiveRecordTest < ActiveSupport::TestCase
   fixtures :all
 
@@ -51,6 +60,21 @@ class ActiveRecordTest < ActiveSupport::TestCase
   def test_can_preload
     projects = Project.all
     assembler = ProjectPreloadAssembler.new(projects)
+
+    data = nil
+    assert_queries 3 do
+      data = assembler.data
+    end
+
+    assert data.is_a?(Array)
+    data.each do |item|
+      assert item.is_a?(Hash)
+    end
+  end
+
+  def test_can_preload_with_mixin
+    projects = Project.all
+    assembler = ProjectPreloadIncludedAssembler.new(projects)
 
     data = nil
     assert_queries 3 do
