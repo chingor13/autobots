@@ -31,6 +31,22 @@ class ProjectPreloadAssembler < Autobots::Assembler
   end
 end
 
+class ProjectPreloadIncludedAssembler < Autobots::Assembler
+  self.serializer = ProjectSerializer
+  include Autobots::Helpers::ActiveRecordPreloading
+
+  def preloads
+    {issues: :comments}
+  end
+end
+
+class ProjectIdAssembler < Autobots::Assembler
+  self.serializer = ProjectSerializer
+  def assemble(identifiers)
+    Project.where(id: identifiers).to_a
+  end
+end
+
 ###########################
 # ActiveModel examples
 ###########################

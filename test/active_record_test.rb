@@ -1,21 +1,5 @@
 require 'test_helper'
 
-class ProjectPreloadIncludedAssembler < Autobots::Assembler
-  self.serializer = ProjectSerializer
-  include Autobots::Helpers::ActiveRecordPreloading
-
-  def preloads
-    {issues: :comments}
-  end
-end
-
-class ProjectIdAssembler < Autobots::Assembler
-  self.serializer = ProjectSerializer
-  def assemble(identifiers)
-    Project.where(id: identifiers).to_a
-  end
-end
-
 class ActiveRecordTest < ActiveSupport::TestCase
   fixtures :all
 
