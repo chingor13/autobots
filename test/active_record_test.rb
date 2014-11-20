@@ -21,10 +21,12 @@ end
 class ProjectPreloadAssembler < Autobots::Assembler
   self.serializer = ProjectSerializer
 
-  def transform
+  def transform(objects)
     ActiveRecord::Associations::Preloader.new(objects, {issues: :comments}).run
+    objects
   rescue ArgumentError
     ActiveRecord::Associations::Preloader.new.preload(objects, {issues: :comments})
+    objects
   end
 end
 

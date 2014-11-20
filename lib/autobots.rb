@@ -5,4 +5,5 @@ require 'bulk_cache_fetcher'
 
 module Autobots
   autoload :Assembler, 'autobots/assembler'
+  autoload :Helpers, 'autobots/helpers'
 end

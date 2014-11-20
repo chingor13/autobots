@@ -9,22 +9,27 @@ module Autobots
     end
 
     def data
-      return @data if defined?(@data)
-      transform
-      @data = roll_out
+      roll_out(objects)
     end
 
     private
 
+    # builds our skeleton resources
     def assemble(identifiers)
       identifiers
     end
 
-    def transform
+    # fetch any additional objects and modify our resources
+    def transform(resources)
+      resources
     end
 
-    def roll_out
-      objects.map{|obj| serializer.new(obj) }.map(&:serializable_hash)
+    # serialize everything
+    def roll_out(objects)
+      transform(objects).map{|obj| serializer.new(obj).serializable_hash }
     end
+
+    prepend Helpers::Caching
+
   end
 end
