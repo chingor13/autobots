@@ -60,6 +60,8 @@ class ProjectAssembler < Autobots::Assembler
   self.serializer = ProjectSerializer # an ActiveModel::Serializer
 end
 
+```
+
 ### Caching
 
 We can get large performance boosts by caching our serializable data. Caching is straight forward:
