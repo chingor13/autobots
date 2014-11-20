@@ -33,14 +33,12 @@ class BasicTest < ActiveSupport::TestCase
     end
     assembler = BasicModelAssembler.new(objs)
 
-    data = assembler.roll_out
+    data = assembler.data
 
     assert data.is_a?(Array)
     data.each do |item|
       assert item.is_a?(Hash)
     end
-
-    pp data
   end
 
 end

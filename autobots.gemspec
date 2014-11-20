@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Autobots::VERSION
   spec.authors       = ["Jeff Ching"]
   spec.email         = ["jching@avvo.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = "Loading and serializing models"
+  spec.description   = "Loading and serializing models in bulk with caching"
   spec.homepage      = ""
   spec.license       = "MIT"
 

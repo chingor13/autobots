@@ -5,17 +5,26 @@ module Autobots
 
     def initialize(identifiers, options = {})
       @identifiers, @options = identifiers, options
-      @objects = load(identifiers)
+      @objects = assemble(identifiers)
     end
 
-    def roll_out
-      objects.map{|obj| serializer.new(obj) }.map(&:serializable_hash)
+    def data
+      return @data if defined?(@data)
+      transform
+      @data = roll_out
     end
 
     private
 
-    def load(identifiers)
+    def assemble(identifiers)
       identifiers
+    end
+
+    def transform
+    end
+
+    def roll_out
+      objects.map{|obj| serializer.new(obj) }.map(&:serializable_hash)
     end
   end
 end
