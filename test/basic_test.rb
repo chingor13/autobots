@@ -1,27 +1,5 @@
 require 'test_helper'
 
-class BasicModelSerializer < ActiveModel::Serializer
-
-  attributes :id, :name
-  has_many :bars
-
-end
-
-class BasicModelAssembler < Autobots::Assembler
-  self.serializer = BasicModelSerializer
-end
-
-class BasicModel
-  include ActiveModel::Model
-  include ActiveModel::SerializerSupport
-
-  attr_accessor :id, :name
-
-  def bars
-    []
-  end
-end
-
 class BasicTest < ActiveSupport::TestCase
 
   def test_basic_model

@@ -1,35 +1,5 @@
 require 'test_helper'
 
-class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :name
-  has_many :issues
-end
-
-class IssueSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body
-  has_many :comments
-end
-
-class CommentSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body
-end
-
-class ProjectAssembler < Autobots::Assembler
-  self.serializer = ProjectSerializer
-end
-
-class ProjectPreloadAssembler < Autobots::Assembler
-  self.serializer = ProjectSerializer
-
-  def transform(objects)
-    ActiveRecord::Associations::Preloader.new(objects, {issues: :comments}).run
-    objects
-  rescue ArgumentError
-    ActiveRecord::Associations::Preloader.new.preload(objects, {issues: :comments})
-    objects
-  end
-end
-
 class ProjectPreloadIncludedAssembler < Autobots::Assembler
   self.serializer = ProjectSerializer
   include Autobots::Helpers::ActiveRecordPreloading

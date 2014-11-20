@@ -4,6 +4,8 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "rails/test_help"
 require 'pp'
 
+require 'test_models'
+
 Rails.backtrace_cleaner.remove_silencers!
 
 ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
