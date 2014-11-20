@@ -32,3 +32,11 @@ ActiveSupport::Notifications.subscribe('sql.active_record') do |_, _, _, _, payl
     QueryCounter.increment!
   end
 end
+
+ActiveSupport::TestCase.class_eval do
+  def assert_queries(count = 1)
+    QueryCounter.clear!
+    yield
+    assert_equal count, QueryCounter.count, "expected to have #{count} sql queries"
+  end
+end
