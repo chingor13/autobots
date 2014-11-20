@@ -50,10 +50,6 @@ resources = assembler.resources
 
 We use the `active_model_serializers` gem to accomplish serialization. An assembler declares the type of serializer used to specify the data returned
 
-### Formatting the response
-
-`autobots` gem only handles the loading and representation of the data.
-
 ```ruby
 
 class ProjectAssembler < Autobots::Assembler
@@ -61,6 +57,10 @@ class ProjectAssembler < Autobots::Assembler
 end
 
 ```
+
+### Formatting the response
+
+`autobots` gem only handles the loading and representation of the data.
 
 ### Caching
 
