@@ -11,7 +11,6 @@ class CachingTest < ActiveSupport::TestCase
     # warming cache
     expected_data =  nil
     assert_queries 3 do
-      puts "===="
       expected_data = assembler.data
     end
 
