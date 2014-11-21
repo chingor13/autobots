@@ -1,10 +1,6 @@
 module Autobots
   module Helpers
     module Caching
-      DEFAULT_CACHE_KEY = -> (object, _) {
-        object.cache_key
-      }
-
       def initialize(_, options = {})
         super
         @cache = options[:cache]
@@ -14,7 +10,9 @@ module Autobots
         return @data if defined?(@data)
 
         if @cache
-          key_proc = options.fetch(:cache_key, DEFAULT_CACHE_KEY)
+          key_proc = options.fetch(:cache_key) do
+            method(:cache_key)
+          end
           identifiers = objects.inject({}) do |acc, obj|
             acc[key_proc.call(obj, self)] = obj
             acc
@@ -28,6 +26,12 @@ module Autobots
           @data = super
         end
         @data
+      end
+
+      protected
+
+      def cache_key(object, _)
+        [object.cache_key, serializer.name, 'serializable-hash']
       end
     end
   end
