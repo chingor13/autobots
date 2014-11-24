@@ -31,10 +31,8 @@ class ProjectPreloadAssembler < Autobots::Assembler
   end
 end
 
-class ProjectPreloadIncludedAssembler < Autobots::Assembler
+class ProjectPreloadIncludedAssembler < Autobots::ActiveRecordAssembler
   self.serializer = ProjectSerializer
-  include Autobots::Helpers::ActiveRecordPreloading
-
   def preloads
     {issues: :comments}
   end
