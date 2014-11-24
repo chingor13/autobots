@@ -98,7 +98,7 @@ The strength of this model lies in minimizing data fetch requests when building 
 
 If a resources's cache is up to date, we shouldn't have to fetch it's dependencies from the database. However, if we have a cache miss, we want to optimally load the data needed.
 
-#### Formatting the response
+#### Formatting the response (roll_out)
 
 We use the `active_model_serializers` gem to accomplish serialization. An assembler declares the type of serializer used to specify the data returned
 
@@ -109,6 +109,8 @@ We use the `active_model_serializers` gem to accomplish serialization. An assemb
 	
 	# returns an array of data for serialization
 	data = assembler.data
+
+The default behavior of an assembler is to wrap each object with the declared serializer and returning its serializable_hash.
 
 `autobots` gem only handles the loading and representation of the data.
 
