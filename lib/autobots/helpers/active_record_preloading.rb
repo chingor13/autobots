@@ -1,6 +1,12 @@
 module Autobots
   module Helpers
     module ActiveRecordPreloading
+      extend ActiveSupport::Concern
+
+      included do
+        class_attribute :preloads
+        self.preloads = []
+      end
 
       def transform(objects)
         ActiveRecord::Associations::Preloader.new(objects, preloads).run
@@ -10,9 +16,6 @@ module Autobots
         objects
       end
 
-      def preloads
-        []
-      end
     end
   end
 end
