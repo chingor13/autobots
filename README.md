@@ -118,6 +118,13 @@ The default behavior of an assembler is to wrap each object with the declared se
 
 We can get large performance boosts by caching our serializable data. Caching is straight forward:
 
+	class ProjectAssembler < Autobots::Assembler
+	  # some sort of ActiveSupport::CacheStore
+	  self.cache = Rails.cache
+	end
+
+Alternatively, you can set the cache on an instance:	
+
 	# some sort of ActiveSupport::CacheStore
 	cache = Rails.cache
 	assembler = ProjectAssembler.new(project_ids, cache: cache)
