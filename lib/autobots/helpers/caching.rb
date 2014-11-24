@@ -1,15 +1,23 @@
 module Autobots
   module Helpers
     module Caching
+      extend ActiveSupport::Concern
+
       def initialize(_, options = {})
         super
-        @cache = options[:cache]
+        self.cache = options[:cache] if options.has_key?(:cache)
+      end
+
+      def self.prepended(klass)
+        klass.class_eval do
+          class_attribute :cache
+        end
       end
 
       def data
         return @data if defined?(@data)
 
-        if @cache
+        if cache
           key_proc = options.fetch(:cache_key) do
             method(:cache_key)
           end
@@ -19,7 +27,7 @@ module Autobots
           end
 
           # misses: { key => obj }
-          @data = BulkCacheFetcher.new(@cache).fetch(identifiers) do |misses|
+          @data = BulkCacheFetcher.new(cache).fetch(identifiers) do |misses|
             roll_out(misses.values)
           end
         else
