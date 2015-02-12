@@ -13,7 +13,7 @@ module Autobots
           class_attribute :cache
         end
       end
-
+      
       def data
         return @data if defined?(@data)
 
@@ -38,8 +38,13 @@ module Autobots
 
       protected
 
+      def serializer_cache_key
+        return @serializer_cache_key if defined?(@serializer_cache_key)
+        @serializer_cache_key = [serializer.name, Digest::SHA256.hexdigest(serializer._attributes.keys.to_s)[0..12]]
+      end
+
       def cache_key(object, _)
-        [object.cache_key, serializer.name, 'serializable-hash']
+        [object.cache_key, *self.serializer_cache_key, 'serializable-hash']
       end
     end
   end
