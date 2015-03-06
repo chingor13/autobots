@@ -27,8 +27,8 @@ module Autobots
           end
 
           if options[:force_reload]
-            identifiers.each do |identifier|
-              cache.delete identifier
+            identifiers.each do |key, _|
+              cache.delete key
             end
           end
 

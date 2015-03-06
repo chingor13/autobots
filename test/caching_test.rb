@@ -24,4 +24,25 @@ class CachingTest < ActiveSupport::TestCase
     assert_equal expected_data, data
   end
 
+  def test_can_force_cache_clear
+    cache = ActiveSupport::Cache::MemoryStore.new
+    projects = Project.all
+    assembler = ProjectPreloadIncludedAssembler.new(projects, cache: cache)
+
+    # warming cache
+    expected_data =  nil
+    assert_queries 3 do
+      expected_data = assembler.data
+    end
+
+    projects = Project.all
+    assembler = ProjectPreloadIncludedAssembler.new(projects, cache: cache, force_reload: true)
+    data = nil
+    assert_queries 3 do
+      data = assembler.data
+    end
+
+    assert_equal expected_data, data
+  end
+
 end
