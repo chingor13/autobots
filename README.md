@@ -141,6 +141,7 @@ By default, we use each resource's `cache_key` implementation. You can provide y
 	})
 
 If you want to wipe the old cache and force a reload, you can pass in the :force_reload option
+
 	assembler = ProjectAssembler.new(project_ids, {
 	  cache: cache,
 	  force_reload: true
