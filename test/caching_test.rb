@@ -45,4 +45,17 @@ class CachingTest < ActiveSupport::TestCase
     assert_equal expected_data, data
   end
 
+  def test_cache_key_contains_associations
+    cache = ActiveSupport::Cache::MemoryStore.new
+    projects = Project.all
+    assembler = CacheBustOnAssociationChangeAssembler.new(projects, cache: cache)
+    cache_key_with_associations = assembler.send(:serializer_cache_key)
+
+    assembler.serializer._associations = {}
+    assembler.remove_instance_variable(:@serializer_cache_key)
+    cache_key_without_associations = assembler.send(:serializer_cache_key)
+
+    assert_not_equal cache_key_with_associations, cache_key_without_associations
+  end
+
 end

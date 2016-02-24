@@ -15,6 +15,11 @@ class CommentSerializer < ActiveModel::Serializer
   attributes :id, :title, :body
 end
 
+class CacheBustOnAssociationChangeSerializer < ActiveModel::Serializer
+  attributes :id, :name
+  has_many :issues
+end
+
 class ProjectAssembler < Autobots::Assembler
   self.serializer = ProjectSerializer
 end
@@ -42,6 +47,13 @@ class ProjectIdAssembler < Autobots::Assembler
   self.serializer = ProjectSerializer
   def assemble(identifiers)
     Project.where(id: identifiers).to_a
+  end
+end
+
+class CacheBustOnAssociationChangeAssembler < Autobots::ActiveRecordAssembler
+  self.serializer = CacheBustOnAssociationChangeSerializer
+  def preloads
+    {issues: :comments}
   end
 end
 
