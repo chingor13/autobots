@@ -2,7 +2,14 @@ language: ruby
 rvm:
   - 2.0.0
   - 2.1.0
+  - 2.3.0
 env:
-  matrix:
-    - "RAILS_VERSION=4.0.0"
-    - "RAILS_VERSION=4.1.0"
+  - RAILS_VERSION=4.0.0
+  - RAILS_VERSION=4.1.0
+  - RAILS_VERSION=5.0.0
+matrix:
+  exclude:
+    - rvm: 2.0.0
+      env: RAILS_VERSION=5.0.0
+    - rvm: 2.1.0
+      env: RAILS_VERSION=5.0.0
